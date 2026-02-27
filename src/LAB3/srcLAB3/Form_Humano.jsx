@@ -1,5 +1,5 @@
 import '../ComponentsLAB3/Estilo_humano.css'
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function Form_Humano() {
 
@@ -12,8 +12,15 @@ function Form_Humano() {
     carrera: ""
   });
 
-  const [shake, setShake] = useState({});
-  const [clicked, setClicked] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
+
+  // 🔵 useRef para focus automático
+  const matriculaRef = useRef(null);
+
+  // 🔵 useEffect para enfocar automáticamente al cargar
+  useEffect(() => {
+    matriculaRef.current.focus();
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -22,50 +29,29 @@ function Form_Humano() {
     });
   };
 
-  const validate = () => {
-    let valid = true;
-    let newShake = {};
-
-    Object.keys(formData).forEach((field) => {
-      if (!formData[field]) {
-        newShake[field] = true;
-        valid = false;
-      }
-    });
-
-    setShake(newShake);
-
-    setTimeout(() => setShake({}), 600);
-
-    return valid;
-  };
-
-  const handleClick = () => {
-    setClicked(true);
-    setTimeout(() => setClicked(false), 200);
-    validate();
-  };
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  setSubmittedData({ ...formData });
+};
 
   return (
     <div className="pagewrap">
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <h3 className="form__title">Registro</h3>
 
-        {/* Matricula */}
         <div className="container">
           <input
+            ref={matriculaRef}
             className="container__input"
             type="text"
             name="matricula"
             value={formData.matricula}
             onChange={handleChange}
+            placeholder=" "
           />
-          <label className={`container__label ${shake.matricula ? "shakeit" : ""}`}>
-            Matricula
-          </label>
+          <label className="container__label">Matricula</label>
         </div>
 
-        {/* Nombre */}
         <div className="container">
           <input
             className="container__input"
@@ -73,13 +59,11 @@ function Form_Humano() {
             name="nombre"
             value={formData.nombre}
             onChange={handleChange}
+            placeholder=" "
           />
-          <label className={`container__label ${shake.nombre ? "shakeit" : ""}`}>
-            Nombre
-          </label>
+          <label className="container__label">Nombre</label>
         </div>
 
-        {/* Apellidos */}
         <div className="container">
           <input
             className="container__input"
@@ -87,13 +71,11 @@ function Form_Humano() {
             name="apellidos"
             value={formData.apellidos}
             onChange={handleChange}
+            placeholder=" "
           />
-          <label className={`container__label ${shake.apellidos ? "shakeit" : ""}`}>
-            Apellidos
-          </label>
+          <label className="container__label">Apellidos</label>
         </div>
 
-        {/* Edad */}
         <div className="container">
           <input
             className="container__input"
@@ -101,13 +83,11 @@ function Form_Humano() {
             name="edad"
             value={formData.edad}
             onChange={handleChange}
+            placeholder=" "
           />
-          <label className={`container__label ${shake.edad ? "shakeit" : ""}`}>
-            Edad
-          </label>
+          <label className="container__label">Edad</label>
         </div>
 
-        {/* Universidad */}
         <div className="container">
           <input
             className="container__input"
@@ -115,13 +95,11 @@ function Form_Humano() {
             name="universidad"
             value={formData.universidad}
             onChange={handleChange}
+            placeholder=" "
           />
-          <label className={`container__label ${shake.universidad ? "shakeit" : ""}`}>
-            Universidad
-          </label>
+          <label className="container__label">Universidad</label>
         </div>
 
-        {/* Carrera */}
         <div className="container">
           <input
             className="container__input"
@@ -129,20 +107,27 @@ function Form_Humano() {
             name="carrera"
             value={formData.carrera}
             onChange={handleChange}
+            placeholder=" "
           />
-          <label className={`container__label ${shake.carrera ? "shakeit" : ""}`}>
-            Carrera
-          </label>
+          <label className="container__label">Carrera</label>
         </div>
 
-        <button
-          type="button"
-          className={`form__submit ${clicked ? "clicked" : ""}`}
-          onClick={handleClick}
-        >
+        <button type="submit" className="form__submit">
           Submit
         </button>
       </form>
+      {submittedData && (
+        <div style={{ marginTop: "20px", textAlign: "left" }}>
+          <h3>Datos Capturados:</h3>
+          <p><strong>Matricula:</strong> {submittedData.matricula}</p>
+          <p><strong>Nombre:</strong> {submittedData.nombre}</p>
+          <p><strong>Apellidos:</strong> {submittedData.apellidos}</p>
+          <p><strong>Edad:</strong> {submittedData.edad}</p>
+          <p><strong>Universidad:</strong> {submittedData.universidad}</p>
+          <p><strong>Carrera:</strong> {submittedData.carrera}</p>
+        </div>
+      )}
+
     </div>
   );
 }
