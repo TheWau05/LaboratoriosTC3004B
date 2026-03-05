@@ -1,26 +1,19 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-}
 
-body {
-  background: linear-gradient(135deg, #1f4037, #99f2c8);
-}
-
-.app-container {
+.form-ia-page {
   min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 40px;
   padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* Card principal */
-.card {
+.form-ia-page .card {
   background: white;
   padding: 40px;
   width: 100%;
@@ -29,20 +22,20 @@ body {
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
-.title {
+.form-ia-page .title {
   text-align: center;
   margin-bottom: 25px;
   color: #1f4037;
 }
 
 /* Formulario */
-.form-modern {
+.form-ia-page .form-modern {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.form-modern input {
+.form-ia-page .form-modern input {
   padding: 14px;
   border-radius: 8px;
   border: 2px solid #ddd;
@@ -50,14 +43,14 @@ body {
   transition: 0.3s;
 }
 
-.form-modern input:focus {
+.form-ia-page .form-modern input:focus {
   border-color: #1f4037;
   outline: none;
   box-shadow: 0 0 8px rgba(31, 64, 55, 0.3);
 }
 
 /* Botón */
-.btn-submit {
+.form-ia-page .btn-submit {
   margin-top: 10px;
   padding: 14px;
   border: none;
@@ -69,13 +62,13 @@ body {
   transition: 0.3s;
 }
 
-.btn-submit:hover {
+.form-ia-page .btn-submit:hover {
   background: #163029;
   transform: translateY(-2px);
 }
 
 /* Card resultado */
-.result-card {
+.form-ia-page .result-card {
   background: white;
   padding: 30px;
   width: 100%;
@@ -85,12 +78,12 @@ body {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-.result-card h3 {
+.form-ia-page .result-card h3 {
   margin-bottom: 15px;
   color: #1f4037;
 }
 
-.result-card p {
+.form-ia-page .result-card p {
   margin-bottom: 8px;
   color: #333;
 }

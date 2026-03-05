@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import "../componentsLAB3/Estilo_IA.css";
-
+import "../ComponentsLAB3/Estilo_IA.css";
 function Form_IA() {
 
   const [formData, setFormData] = useState({
@@ -34,6 +33,7 @@ function Form_IA() {
   };
 
   return (
+    <div className= "form-ia-page">
     <div className="app-container">
 
       <div className="card">
@@ -109,6 +109,7 @@ function Form_IA() {
         </div>
       )}
 
+    </div>
     </div>
   );
 }
