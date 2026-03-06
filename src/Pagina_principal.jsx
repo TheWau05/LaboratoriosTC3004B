@@ -12,6 +12,9 @@ function Pagina_principal() {
         <Link to="/lab4">
           <button>Laboratorio 4</button>
         </Link>
+        <Link to="/lab5">
+          <button>Laboratorio 5</button>
+        </Link>
       </div>
     </div>
   );

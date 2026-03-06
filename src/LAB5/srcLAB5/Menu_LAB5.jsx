@@ -3,18 +3,18 @@ import BotonRegreso from "../../Component/BotonRegreso";
 
 
 
-function Pagina_principal() {
+function Menu_LAB5() {
   return (
     <div style={{ padding: 40, textAlign: "center" }}>
-      <h1>Laboratorio 4 Forms</h1>
+      <h1>Laboratorio 5 Forms</h1>
 
       <div style={{ display: "flex", gap: 20, justifyContent: "center" }}>
-        <Link to="/Lab4IA">
-          <button>Laboratorio 4 IA</button>
+        <Link to="/Lab5IA">
+          <button>Laboratorio 5 IA</button>
         </Link>
 
-        <Link to="/Lab4Humano">
-          <button>Laboratorio 4 Humano</button>
+        <Link to="/Lab5Humano">
+          <button>Laboratorio 5 Humano</button>
         </Link>
 
         <BotonRegreso/>
@@ -23,4 +23,4 @@ function Pagina_principal() {
   );
 }
 
-export default Pagina_principal;
+export default Menu_LAB5;
