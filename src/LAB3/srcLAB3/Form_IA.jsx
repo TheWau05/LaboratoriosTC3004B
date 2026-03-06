@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../ComponentsLAB3/Estilo_IA.css";
+import BotonRegreso from "../../Component/BotonRegreso";
 function Form_IA() {
 
   const [formData, setFormData] = useState({
@@ -96,6 +97,7 @@ function Form_IA() {
 
         </form>
       </div>
+      <BotonRegreso/>
 
       {submittedData && (
         <div className="result-card">

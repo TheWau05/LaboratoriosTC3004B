@@ -1,3 +1,4 @@
+import BotonRegreso from '../../Component/BotonRegreso';
 import '../ComponentsLAB3/Estilo_humano.css'
 import React, { useState, useEffect, useRef } from "react";
 
@@ -14,10 +15,8 @@ function Form_Humano() {
 
   const [submittedData, setSubmittedData] = useState(null);
 
-  // 🔵 useRef para focus automático
   const matriculaRef = useRef(null);
 
-  // 🔵 useEffect para enfocar automáticamente al cargar
   useEffect(() => {
     matriculaRef.current.focus();
   }, []);
@@ -115,6 +114,7 @@ function Form_Humano() {
         <button type="submit" className="form__submit">
           Submit
         </button>
+        <BotonRegreso/>
       </form>
       {submittedData && (
         <div style={{ marginTop: "20px", textAlign: "left" }}>
